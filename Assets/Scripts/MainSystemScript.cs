@@ -50,11 +50,12 @@ public class MainSystemScript : MonoBehaviour {
 	}
 	//クラッシュ処理
 	public void Crash() {
-		if (life > 0) {
+		if (life > 1) {
 			life -= 1;
 			AddScore(10000, "Crash Bonus");
 			BallSpown();
-		} else if (life == 0) {
+		} else if (life == 1) {
+			life -= 1;
 			Gameover();
 		}
 	}
