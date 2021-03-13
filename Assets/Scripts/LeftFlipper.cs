@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
+
+public class LeftFlipper : MonoBehaviour
+{
+    public float spring = 40000;
+    public float openAngle = 60;
+    public float closeAngle = -20;
+
+    private HingeJoint hjL;
+
+    private JointSpring jL;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        GameObject LeftFlipper = GameObject.Find("CylinderL");
+
+        hjL = LeftFlipper.GetComponent<HingeJoint>();
+
+        jL = hjL.spring;
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown("f"))
+        {
+            jL.spring = spring;
+            jL.targetPosition = openAngle;
+            hjL.spring = jL;
+        }
+        if (Input.GetKeyUp("f"))
+        {
+            jL.spring = spring;
+            jL.targetPosition = closeAngle;
+            hjL.spring = jL;
+        }
+    }
+}
