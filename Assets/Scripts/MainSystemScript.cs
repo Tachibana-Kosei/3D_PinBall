@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class MainSystemScript : MonoBehaviour {
-	private int life = 3;
+	private int life = 30;
 	private long score = 0;
 	private GameObject spowner;
 	private GameObject canvas;
@@ -25,6 +25,9 @@ public class MainSystemScript : MonoBehaviour {
 	private void Update() {
 		scoreText.text = "Score:" + score.ToString();
 		lifeText.text = "Life:" + life.ToString();
+		if (Input.GetKeyDown(KeyCode.F2)) {
+			BallSpown();
+		}
 	}
 	private GameObject GetChildGameObject(GameObject parentGameObject, String childName) {
 		return parentGameObject.transform.GetComponentsInChildren<Transform>(true).ToList().FirstOrDefault(value => value.name == childName).gameObject;

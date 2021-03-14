@@ -11,7 +11,6 @@ public class OneWayWallScript : MonoBehaviour {
 	void Start() {
 		thisMesh = GetComponent<MeshCollider>();
 		thisMesh.isTrigger = false;
-		thisMesh.convex = true;
 		thisMesh.enabled = false;
 	}
 

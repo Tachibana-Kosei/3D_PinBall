@@ -7,9 +7,9 @@ using System.Linq;
 
 public class RightFlipper : MonoBehaviour
 {
-    public float spring = 2000;
+    public float spring = 4000;
     public float openAngle = 60;
-    public float closeAngle = -20;
+    public float closeAngle = -35;
 
     private HingeJoint hjR;
 
