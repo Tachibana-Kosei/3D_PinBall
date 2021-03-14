@@ -7,9 +7,9 @@ using System.Linq;
 
 public class RightFlipper : MonoBehaviour
 {
-    public float spring = 40000;
+    public float spring = 2000;
     public float openAngle = 60;
-    public float closeAngle = 0;
+    public float closeAngle = -20;
 
     private HingeJoint hjR;
 
@@ -22,6 +22,8 @@ public class RightFlipper : MonoBehaviour
 
         hjR = RightFlipper.GetComponent<HingeJoint>();
 
+        hjR.useSpring = true;
+
         jR = hjR.spring;
 
     }
@@ -29,16 +31,16 @@ public class RightFlipper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("j"))
+        if (Input.GetKeyDown("j"))
         {
             jR.spring = spring;
             jR.targetPosition = -openAngle;
             hjR.spring = jR;
         }
-        if (Input.GetKey("j"))
+        if (Input.GetKeyUp("j"))
         {
             jR.spring = spring;
-            jR.targetPosition = closeAngle;
+            jR.targetPosition = -closeAngle;
             hjR.spring = jR;
         }
     }

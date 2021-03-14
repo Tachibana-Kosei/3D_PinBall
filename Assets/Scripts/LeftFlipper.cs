@@ -7,7 +7,7 @@ using System.Linq;
 
 public class LeftFlipper : MonoBehaviour
 {
-    public float spring = 40000;
+    public float spring = 2000;
     public float openAngle = 60;
     public float closeAngle = -20;
 
@@ -21,6 +21,8 @@ public class LeftFlipper : MonoBehaviour
         GameObject LeftFlipper = GameObject.Find("CylinderL");
 
         hjL = LeftFlipper.GetComponent<HingeJoint>();
+
+        hjL.useSpring = true;
 
         jL = hjL.spring;
 
