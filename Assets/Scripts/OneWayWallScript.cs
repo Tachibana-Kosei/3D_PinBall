@@ -7,8 +7,12 @@ using System.Linq;
 
 public class OneWayWallScript : MonoBehaviour {
 
+	private MeshCollider thisMesh;
 	void Start() {
-
+		thisMesh = GetComponent<MeshCollider>();
+		thisMesh.isTrigger = false;
+		thisMesh.convex = true;
+		thisMesh.enabled = false;
 	}
 
 	void Update() {
@@ -17,12 +21,12 @@ public class OneWayWallScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag("Ball")) {
-			GetComponent<MeshCollider>().isTrigger = true;
+			thisMesh.enabled = false;
 		}
 	}
 	private void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag("Ball")) {
-			GetComponent<MeshCollider>().isTrigger = false;
+			thisMesh.enabled = true;
 		}
 	}
 }
