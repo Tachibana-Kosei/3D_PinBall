@@ -41,7 +41,7 @@ public class MainSystemScript : MonoBehaviour {
 	//AddScoreのオーバーロード。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる
 	public void AddScore(int addPoint, String comment) {
 		score += addPoint;
-		Debug.Log("Add Score:" + addPoint + ", Now Score:" + score + ", Comment:\"" + comment+"\"");
+		Debug.Log("Add Score:" + addPoint + ", Now Score:" + score + ", Comment:\"" + comment + "\"");
 	}
 	//引数の数字の分ライフを増やすメソッド。
 	public void AddLife(int addNum) {
@@ -50,11 +50,12 @@ public class MainSystemScript : MonoBehaviour {
 	}
 	//クラッシュ処理
 	public void Crash() {
-		life -= 1;
-		AddScore(10000,"Crash Bonus");
-		if (life > 0) {
+		AddScore(10000, "Crash Bonus");
+		if (life > 1) {
+			life -= 1;
 			BallSpown();
-		} else {
+		} else if (life == 1) {
+			life -= 1;
 			Gameover();
 		}
 	}
