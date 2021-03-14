@@ -8,7 +8,7 @@ using System.Linq;
 public class PlungerScript_Tachibana : MonoBehaviour {
 	private GameObject BallSpowner;
 	float power = 1.0f;
-	public float maxPower = 30.0f;
+	public float maxPower = 25.0f;
 	private Rigidbody rd;
 	private Vector3 startPotision;
 	private BoxCollider boxCollider;
@@ -25,7 +25,7 @@ public class PlungerScript_Tachibana : MonoBehaviour {
 		if (Input.GetKey(KeyCode.Space)) {
 			if (this.power < maxPower) {
 				this.transform.position += new Vector3(0.0f, Mathf.Sin(Mathf.PI / 6.0f), Mathf.Cos(Mathf.PI / 6.0f)) * (-0.05f);//位置
-				this.power += 0.75f;//力
+				this.power += 0.65f;//力
 			} else if (this.power > maxPower) {
 				this.power = maxPower;
 			}
