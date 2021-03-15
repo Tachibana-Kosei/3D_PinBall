@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
+﻿using UnityEngine;
 
-public class LightScript : MonoBehaviour{
+public class LightScript : MonoBehaviour {
 	public Material lightingMaterial;
 	public Material unlightingMaterial;
-	public bool isLight=false;
+	public bool isLight = false;
 	private MeshRenderer thisMeshRenderer;
-	
-	void Start(){
+
+	private void Start() {
 		thisMeshRenderer = GetComponent<MeshRenderer>();
 		SetLight(false);
 	}
 
-	void Update(){
+	private void Update() {
 	}
 
 	//引数のbool型で点灯状態を変える。trueで点灯。
@@ -36,6 +31,12 @@ public class LightScript : MonoBehaviour{
 			thisMeshRenderer.material = lightingMaterial;
 		} else {
 			thisMeshRenderer.material = unlightingMaterial;
+		}
+	}
+
+	//デバッグ用メソッド
+	public void RandomToggle() {
+		if (UnityEngine.Random.Range(0, 10) == 0) {
 		}
 	}
 }
