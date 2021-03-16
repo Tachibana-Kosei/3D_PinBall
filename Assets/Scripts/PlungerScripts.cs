@@ -36,7 +36,7 @@ public class PlungerScripts : MonoBehaviour {
 			}
 			if (Input.GetKeyUp(KeyCode.Space)) {
 				foreach (Rigidbody r in ballList) {
-					r.AddForce(0, power, power * 1.7f);
+					r.AddForce(0, power, power * Mathf.Sqrt(3f));
 				}
 			}
 		} else {

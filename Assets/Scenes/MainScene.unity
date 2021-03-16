@@ -623,6 +623,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069203372355146778, guid: 480421a4c7220b442b6f7a0c86dbff15,
+        type: 3}
+      propertyPath: isLight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480421a4c7220b442b6f7a0c86dbff15, type: 3}
 --- !u!1 &91937151
@@ -9138,6 +9143,26 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &252667200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7069203372355146776, guid: 480421a4c7220b442b6f7a0c86dbff15,
+    type: 3}
+  m_PrefabInstance: {fileID: 85743728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &252667205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252667200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4c7927da850984fae8721dd20b819c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childrenLight: []
+  childrenScript: []
 --- !u!4 &276851658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7069203372355146777, guid: 480421a4c7220b442b6f7a0c86dbff15,
@@ -22139,6 +22164,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069203372355146778, guid: 480421a4c7220b442b6f7a0c86dbff15,
+        type: 3}
+      propertyPath: isLight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480421a4c7220b442b6f7a0c86dbff15, type: 3}
 --- !u!1 &554654399
@@ -22464,6 +22494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069203372355146778, guid: 480421a4c7220b442b6f7a0c86dbff15,
+        type: 3}
+      propertyPath: isLight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480421a4c7220b442b6f7a0c86dbff15, type: 3}
@@ -28843,7 +28878,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14266
+  m_Name: pb_Mesh19076
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37861,6 +37896,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069203372355146778, guid: 480421a4c7220b442b6f7a0c86dbff15,
+        type: 3}
+      propertyPath: isLight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480421a4c7220b442b6f7a0c86dbff15, type: 3}
 --- !u!1 &1160532749
@@ -38511,7 +38551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236380465}
   m_LocalRotation: {x: -0.000000014901161, y: -0.06763823, z: -0, w: 0.99770993}
-  m_LocalPosition: {x: 0.3873, y: 1, z: 0.1319}
+  m_LocalPosition: {x: 0.387, y: 1, z: 0.1319}
   m_LocalScale: {x: 0.01, y: 1, z: 0.07}
   m_Children: []
   m_Father: {fileID: 1295339717}
@@ -57432,6 +57472,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069203372355146778, guid: 480421a4c7220b442b6f7a0c86dbff15,
+        type: 3}
+      propertyPath: isLight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480421a4c7220b442b6f7a0c86dbff15, type: 3}
 --- !u!43 &1789256627
@@ -67446,6 +67491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069203372355146778, guid: 480421a4c7220b442b6f7a0c86dbff15,
+        type: 3}
+      propertyPath: isLight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480421a4c7220b442b6f7a0c86dbff15, type: 3}

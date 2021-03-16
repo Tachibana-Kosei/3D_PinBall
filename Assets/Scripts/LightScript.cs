@@ -8,7 +8,7 @@ public class LightScript : MonoBehaviour {
 
 	private void Start() {
 		thisMeshRenderer = GetComponent<MeshRenderer>();
-		SetLight(true);
+		SetLight(isLight);
 	}
 
 	private void Update() {

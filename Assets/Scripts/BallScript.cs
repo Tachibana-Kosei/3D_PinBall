@@ -13,7 +13,7 @@ public class BallScript : MonoBehaviour{
 	}
 
 	void Update(){
-		if (transform.position.y < -15) {
+		if (transform.position.y < -15||transform.position.y>15) {
 			mainSystem.Crash();
 			Destroy(gameObject);
 		}
