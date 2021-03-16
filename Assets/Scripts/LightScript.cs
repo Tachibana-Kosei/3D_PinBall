@@ -8,11 +8,10 @@ public class LightScript : MonoBehaviour {
 
 	private void Start() {
 		thisMeshRenderer = GetComponent<MeshRenderer>();
-		SetLight(Random.value>0.5f);
+		SetLight(false);
 	}
 
 	private void Update() {
-		RandomToggle();
 	}
 
 	//引数のbool型で点灯状態を変える。trueで点灯。
