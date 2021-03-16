@@ -9,7 +9,10 @@ public class LightController_FieldMultiplierScript : LightController_CommonScrip
 
 	void Start() {
 		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
-		childrenLight = GetComponentsInChildren<GameObject>().OrderBy(value => value.transform.position.x).ToList();
+		foreach (Transform transform in transform) {
+			childrenLight.Add(transform.gameObject);
+		}
+		childrenLight.OrderBy(value => value.transform.position.x);
 		childrenScript = childrenLight.Select(value => value.GetComponent<LightScript>()).ToList();
 	}
 
@@ -20,7 +23,7 @@ public class LightController_FieldMultiplierScript : LightController_CommonScrip
 	private void LightingCheck() {
 		if (IsAllLighting()) {
 			SetAllLight(false);
-			mainSystem.AddScore(5000, "Re_Entry");
+			mainSystem.AddScore(5000, "FieldMultiplier");
 		}
 	}
 }

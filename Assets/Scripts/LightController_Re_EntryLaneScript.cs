@@ -7,13 +7,16 @@ using UnityEngine.UI;
 
 public class LightController_Re_EntryLaneScript : LightController_CommonScript {
 
-	void Start() {
+	private void Start() {
 		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
-		childrenLight = GetComponentsInChildren<GameObject>().OrderByDescending(value => value.transform.position.x).ToList();
+		foreach (Transform transform in transform) {
+			childrenLight.Add(transform.gameObject);
+		}
+		childrenLight.OrderByDescending(value => value.transform.position.x);
 		childrenScript = childrenLight.Select(value => value.GetComponent<LightScript>()).ToList();
 	}
 
-	void Update() {
+	private void Update() {
 		LightingCheck();
 	}
 

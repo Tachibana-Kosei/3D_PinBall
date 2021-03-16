@@ -9,7 +9,10 @@ public class LightController_FuelTargetScript : LightController_CommonScript {
 	
 	void Start() {
 		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
-		childrenLight = GetComponentsInChildren<GameObject>().OrderByDescending(value => value.transform.position.x).ToList();
+		foreach (Transform transform in transform) {
+			childrenLight.Add(transform.gameObject);
+		}
+		childrenLight.OrderByDescending(value => value.transform.position.x);
 		childrenScript = childrenLight.Select(value => value.GetComponent<LightScript>()).ToList();
 	}
 
