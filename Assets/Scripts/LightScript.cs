@@ -37,7 +37,7 @@ public class LightScript : MonoBehaviour {
 	//デバッグ用メソッド
 	public void RandomToggle() {
 		if (Random.Range(0, 600) == 0) {
-			ToggleLight();
+			SetLight(!isLight);
 		}
 	}
 }

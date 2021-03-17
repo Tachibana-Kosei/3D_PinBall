@@ -12,7 +12,7 @@ public class LightController_BoosterTargetScript : LightController_CommonScript 
 	}
 
 	void Update(){
-		if (IsAllLighting()) {
+		if (IsEveryLighting()) {
 			SetAllLight(false);
 			mainSystem.AddScore(5000, "Booster");
 		}

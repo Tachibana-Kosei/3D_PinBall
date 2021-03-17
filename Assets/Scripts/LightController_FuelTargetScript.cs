@@ -16,7 +16,7 @@ public class LightController_FuelTargetScript : LightController_CommonScript {
 	}
 
 	private void LightingCheck() {
-		if (IsAllLighting()) {
+		if (IsEveryLighting()) {
 			SetAllLight(false);
 			mainSystem.AddScore(5000, "FuelTarget");
 		}

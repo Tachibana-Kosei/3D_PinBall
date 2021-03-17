@@ -15,7 +15,7 @@ public class LightController_MissionTargetScript : LightController_CommonScript 
 		LightingCheck();
 	}
 	private void LightingCheck() {
-		if (IsAllLighting()) {
+		if (IsEveryLighting()) {
 			SetAllLight(false);
 			mainSystem.AddScore(5000, "MissionTarget");
 		}

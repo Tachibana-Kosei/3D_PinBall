@@ -16,7 +16,7 @@ public class LightController_Re_EntryLaneScript : LightController_CommonScript {
 	}
 
 	private void LightingCheck() {
-		if (IsAllLighting()) {
+		if (IsEveryLighting()) {
 			SetAllLight(false);
 			mainSystem.AddScore(5000, "Re_Entry");
 		}

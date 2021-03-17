@@ -16,7 +16,7 @@ public class LightController_FieldMultiplierScript : LightController_CommonScrip
 	}
 
 	private void LightingCheck() {
-		if (IsAllLighting()) {
+		if (IsEveryLighting()) {
 			SetAllLight(false);
 			mainSystem.AddScore(5000, "FieldMultiplier");
 		}

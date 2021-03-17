@@ -13,6 +13,9 @@ public class MainSystemScript : MonoBehaviour {
 	public GameObject ballPrefab;
 	private Text lifeText;
 	private Text scoreText;
+	private float gameTime_whole=0f;
+	private float gameTime_nowPlay=0f;
+	private bool onPlaying=false;
 
 	private void Start() {
 		spowner = GameObject.Find("BallSpowner");
@@ -27,6 +30,10 @@ public class MainSystemScript : MonoBehaviour {
 		lifeText.text = "Life:" + life.ToString();
 		if (Input.GetKeyDown(KeyCode.F2)) {
 			BallSpown();
+		}
+		if (onPlaying) {
+			gameTime_nowPlay += Time.deltaTime;
+			gameTime_whole += Time.deltaTime;
 		}
 	}
 
@@ -61,6 +68,8 @@ public class MainSystemScript : MonoBehaviour {
 	public void Crash() {
 		AddScore(10000, "Crash Bonus");
 		life -= 1;
+		onPlaying = false;
+		gameTime_nowPlay = 0f;
 		if (life > 0) {
 			BallSpown();
 		} else if (life == 0) {
@@ -71,5 +80,6 @@ public class MainSystemScript : MonoBehaviour {
 	//ゲームオーバー処理
 	public void Gameover() {
 		Debug.Log("Gameover!! Score:" + score);
+		Debug.Log("Play time: " + gameTime_whole);
 	}
 }

@@ -14,7 +14,7 @@ public class LightController_CommonScript : MonoBehaviour {
 		childrenScript.ForEach(value => value.SetLight(isLight));
 	}
 
-	public bool IsAllLighting() {
+	public bool IsEveryLighting() {
 		return childrenScript.All(value => value.isLight);
 	}
 

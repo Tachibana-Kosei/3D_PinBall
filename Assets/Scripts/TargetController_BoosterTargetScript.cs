@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class TargetController_BoosterTargetScript : TargetController_CommonScript{
+	
+	void Start(){
+		
+	}
+
+	void Update(){
+		
+	}
+}
