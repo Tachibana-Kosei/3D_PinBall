@@ -7,13 +7,8 @@ using UnityEngine.UI;
 
 public class LightController_FieldMultiplierScript : LightController_CommonScript {
 
-	void Start() {
-		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
-		foreach (Transform transform in transform) {
-			childrenLight.Add(transform.gameObject);
-		}
-		childrenLight.OrderBy(value => value.transform.position.x);
-		childrenScript = childrenLight.Select(value => value.GetComponent<LightScript>()).ToList();
+	private void Start() {
+		CommonStart();
 	}
 
 	void Update() {

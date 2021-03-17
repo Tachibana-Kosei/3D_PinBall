@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class LightController_SpaceWarpTarget : LightController_CommonScript{
 	private LightScript lightScript;
 	
-	void Start(){
-		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
+	void Start() {
+		CommonStart();
 		lightScript = GetComponent<LightScript>();
 	}
 

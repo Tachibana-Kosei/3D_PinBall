@@ -8,12 +8,7 @@ using UnityEngine.UI;
 public class LightController_Re_EntryLaneScript : LightController_CommonScript {
 
 	private void Start() {
-		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
-		foreach (Transform transform in transform) {
-			childrenLight.Add(transform.gameObject);
-		}
-		childrenLight.OrderByDescending(value => value.transform.position.x);
-		childrenScript = childrenLight.Select(value => value.GetComponent<LightScript>()).ToList();
+		CommonStart();
 	}
 
 	private void Update() {
