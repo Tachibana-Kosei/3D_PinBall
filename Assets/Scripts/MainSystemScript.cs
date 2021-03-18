@@ -11,39 +11,61 @@ public class MainSystemScript : MonoBehaviour {
 	private GameObject spowner;
 	private GameObject canvas;
 	public GameObject ballPrefab;
-	private Text lifeText;
-	private Text scoreText;
-	private float gameTime_whole=0f;
-	private float gameTime_nowPlay=0f;
-	private bool onPlaying=false;
+	public Text lifeText;
+	public Text scoreText;
+	public Text time_now;
+	public Text time_whole;
+	private float gameTime_whole = 0f;
+	private float gameTime_nowPlay = 0f;
+	private GameState gameState;
+
+	private enum GameState {
+		OnStandby, Playing
+	}
 
 	private void Start() {
 		spowner = GameObject.Find("BallSpowner");
 		canvas = GameObject.Find("Canvas");
-		lifeText = GetChildGameObject(canvas, "LifeText").GetComponent<Text>();
-		scoreText = GetChildGameObject(canvas, "ScoreText").GetComponent<Text>();
+		OnStandby();
+	}
+
+	private GameObject GetChildGameObject(GameObject parentGameObject, string childName) {
+		return parentGameObject.transform.GetComponentsInChildren<Transform>().ToList().FirstOrDefault(value => value.name == childName).gameObject;
+	}
+
+	public void OnStandby() {
 		BallSpown();
-	}
-
-	private void Update() {
-		scoreText.text = "Score:" + score.ToString();
-		lifeText.text = "Life:" + life.ToString();
-		if (Input.GetKeyDown(KeyCode.F2)) {
-			BallSpown();
-		}
-		if (onPlaying) {
-			gameTime_nowPlay += Time.deltaTime;
-			gameTime_whole += Time.deltaTime;
-		}
-	}
-
-	private GameObject GetChildGameObject(GameObject parentGameObject, String childName) {
-		return parentGameObject.transform.GetComponentsInChildren<Transform>(true).ToList().FirstOrDefault(value => value.name == childName).gameObject;
+		gameState = GameState.OnStandby;
+		CanvasUpdate();
 	}
 
 	//ボールをスタート地点に生成するメソッド
 	public void BallSpown() {
 		Instantiate(ballPrefab, spowner.transform.position, Quaternion.identity);
+	}
+
+	private void Update() {
+		if (Input.GetKeyDown(KeyCode.F2)) {
+			BallSpown();
+		}
+		if (gameState == GameState.Playing) {
+			gameTime_nowPlay += Time.deltaTime;
+			gameTime_whole += Time.deltaTime;
+			CanvasUpdate();
+		}
+	}
+
+	public void PlayStart() {
+		if (gameState != GameState.Playing) {
+			gameState = GameState.Playing;
+		}
+	}
+
+	public void CanvasUpdate() {
+		scoreText.text = "Score: " + score;
+		lifeText.text = "Life: " + life;
+		time_now.text = "Time(now): " + gameTime_nowPlay.ToString("0.0");
+		time_whole.text = "Time(whole): " + gameTime_whole.ToString("0.0");
 	}
 
 	//引数の数字の分スコアに加算するメソッド。
@@ -53,7 +75,7 @@ public class MainSystemScript : MonoBehaviour {
 	}
 
 	//AddScoreのオーバーロード。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる
-	public void AddScore(int addPoint, String comment) {
+	public void AddScore(int addPoint, string comment) {
 		score += addPoint;
 		Debug.Log("Add Score:" + addPoint + ", Now Score:" + score + ", Comment:\"" + comment + "\"");
 	}
@@ -66,9 +88,10 @@ public class MainSystemScript : MonoBehaviour {
 
 	//クラッシュ処理
 	public void Crash() {
-		AddScore(10000, "Crash Bonus");
+		AddScore(10000, "Crash Bonus, Now play time:" + gameTime_nowPlay);
 		life -= 1;
-		onPlaying = false;
+		gameState = GameState.OnStandby;
+		CanvasUpdate();
 		gameTime_nowPlay = 0f;
 		if (life > 0) {
 			BallSpown();

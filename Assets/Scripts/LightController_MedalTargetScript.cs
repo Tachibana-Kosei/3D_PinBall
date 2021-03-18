@@ -9,6 +9,8 @@ public class LightController_MedalTargetScript : LightController_CommonScript {
 
 	private void Start() {
 		CommonStart();
+		childrenLight.Reverse();
+		childrenScript.Reverse();
 	}
 
 	void Update() {
