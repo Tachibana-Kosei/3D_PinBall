@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public abstract class LightControllerWithTarget_BasicScript : LightController_BasicScript{
 	protected float lightingTime=0f;
 	protected float lightingDuration;
-	protected int level=0;
-	protected int maxLevel;
+	public int level=0;
+	public int maxLevel;
 
 	protected override void Start() {
 		base.Start();
@@ -17,6 +17,7 @@ public abstract class LightControllerWithTarget_BasicScript : LightController_Ba
 	}
 
 	public void SetLevel(int level) {
+		level = Math.Min(level, maxLevel);
 		for (int i = 0; i < maxLevel; i++) {
 			childrenScript[i].SetLight(i < level);
 		}

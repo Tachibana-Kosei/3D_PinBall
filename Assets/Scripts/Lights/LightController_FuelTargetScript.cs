@@ -6,7 +6,4 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LightController_FuelTargetScript : LightController_BasicScript {
-
-	void Update(){
-	}
 }

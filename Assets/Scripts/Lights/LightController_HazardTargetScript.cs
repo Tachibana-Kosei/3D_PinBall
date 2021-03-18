@@ -7,6 +7,4 @@ using UnityEngine.UI;
 
 public class LightController_HazardTargetScript : LightController_BasicScript {
 
-	void Update() {
-	}
 }

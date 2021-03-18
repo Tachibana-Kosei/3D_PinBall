@@ -7,6 +7,4 @@ using UnityEngine.UI;
 
 public class LightController_MissionTargetScript : LightController_BasicScript {
 
-	void Update() {
-	}
 }

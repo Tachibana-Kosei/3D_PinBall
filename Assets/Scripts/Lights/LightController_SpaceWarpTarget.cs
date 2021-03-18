@@ -7,7 +7,4 @@ using UnityEngine.UI;
 
 public class LightController_SpaceWarpTarget : LightController_BasicScript{
 	
-
-	void Update(){
-	}
 }

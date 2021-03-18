@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class LightController_Re_EntryLaneScript : LightController_BasicScript {
 
-	private void Update() {
-	}
-
 	public void LightMove_toR() {
 		var tempBool = childrenScript[2].isLight;
 		childrenScript[2].isLight = childrenScript[1].isLight;

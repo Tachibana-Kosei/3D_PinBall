@@ -7,10 +7,18 @@ using UnityEngine.UI;
 
 public abstract class TargetController_BasicScript : ControllerBasicScript {
 	private List<TargetScript> childrenTargetScript;
-	public GameObject lightController;
+	public LightControllerWithTarget_BasicScript lightController;
 
-	protected virtual void Start() {
+	protected override void Start() {
+		base.Start();
 		childrenTargetScript = GetComponentsInChildren<TargetScript>().ToList();
+	}
+
+	protected virtual void Update() {
+		if (IsEveryDropped()) {
+			SetAllTarget(true);
+			lightController.SetLevel(lightController.level + 1);
+		}
 	}
 
 	public bool IsEveryDropped() {
@@ -24,6 +32,4 @@ public abstract class TargetController_BasicScript : ControllerBasicScript {
 	public override void Reset() {
 		SetAllTarget(true);
 	}
-
-	protected abstract void OnEveryDropped();
 }

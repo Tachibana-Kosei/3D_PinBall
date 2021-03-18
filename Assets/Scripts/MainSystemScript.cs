@@ -9,7 +9,6 @@ public class MainSystemScript : MonoBehaviour {
 	private int life = 30;
 	private long score = 0;
 	private GameObject spowner;
-	private GameObject canvas;
 	public GameObject ballPrefab;
 	public Text lifeText;
 	public Text scoreText;
@@ -28,6 +27,7 @@ public class MainSystemScript : MonoBehaviour {
 	public bool bonusHold = false;
 	private long jackpotScore = 0;
 	private long bonusScore = 0;
+	public List<ControllerBasicScript> controllers;
 
 	private enum GameState {
 		OnStandby, ReDeploying, Playing
@@ -35,18 +35,18 @@ public class MainSystemScript : MonoBehaviour {
 
 	private void Start() {
 		spowner = GameObject.Find("BallSpowner");
-		canvas = GameObject.Find("Canvas");
 		OnStandby();
 	}
 
-	private GameObject GetChildGameObject(GameObject parentGameObject, string childName) {
-		return parentGameObject.transform.GetComponentsInChildren<Transform>().ToList().FirstOrDefault(value => value.name == childName).gameObject;
-	}
-
 	public void OnStandby() {
-		BallSpown();
 		gameState = GameState.OnStandby;
 		CanvasUpdate();
+		controllers.ForEach(x => x.Reset());
+		if (life > 0) {
+			BallSpown();
+		} else if (life == 0) {
+			Gameover();
+		}
 	}
 
 	//ボールをスタート地点に生成するメソッド
@@ -80,16 +80,18 @@ public class MainSystemScript : MonoBehaviour {
 		time_whole.text = "Time(whole): " + gameTime_whole.ToString("0.0");
 	}
 
-	//引数の数字の分スコアに加算するメソッド。
-	public void AddScore(int addPoint) {
-		score += addPoint;
-		Debug.Log("Add Score:" + addPoint + ", Now Score:" + score);
+	//引数の数字の分スコアに加算するメソッド。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる
+	public void AddScore(int addPoint, string comment) {
+		int actualyAddPoint = addPoint * fieldMultiplyRate;
+		score += actualyAddPoint;
+		if (jackpotEnable) jackpotScore = actualyAddPoint;
+		if (bonusEnable) bonusScore = actualyAddPoint;
+		Debug.Log("Add Score:" + actualyAddPoint + ", Now Score:" + score + ", Comment:\"" + comment + "\"");
 	}
 
-	//AddScoreのオーバーロード。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる
-	public void AddScore(int addPoint, string comment) {
-		score += addPoint;
-		Debug.Log("Add Score:" + addPoint + ", Now Score:" + score + ", Comment:\"" + comment + "\"");
+	//AddScoreのオーバーロード。
+	public void AddScore(int addPoint) {
+		AddScore(addPoint, "");
 	}
 
 	//引数の数字の分ライフを増やすメソッド。
@@ -113,18 +115,12 @@ public class MainSystemScript : MonoBehaviour {
 		} else {//クラッシュ処理
 			AddScore(10000, "Crash Bonus, Now play time:" + gameTime_nowPlay);
 			life -= 1;
-			gameState = GameState.OnStandby;
-			CanvasUpdate();
+			OnStandby();
 			gameTime_nowPlay = 0f;
 			jackpotEnable = false;
 			jackpotScore = 0;
 			if (!bonusHold) { bonusScore = 0; }
 			bonusHold = false;
-			if (life > 0) {
-				BallSpown();
-			} else if (life == 0) {
-				Gameover();
-			}
 		}
 	}
 
