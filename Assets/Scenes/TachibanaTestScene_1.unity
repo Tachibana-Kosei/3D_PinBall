@@ -22784,7 +22784,7 @@ GameObject:
   - component: {fileID: 584406009}
   - component: {fileID: 584406012}
   m_Layer: 0
-  m_Name: StartDetector (1)
+  m_Name: DeployDetector (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45318,7 +45318,7 @@ GameObject:
   - component: {fileID: 1507975711}
   - component: {fileID: 1507975714}
   m_Layer: 0
-  m_Name: StartDetector
+  m_Name: DeployDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

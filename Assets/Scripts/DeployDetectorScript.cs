@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartDetectorScript : MonoBehaviour {
+public class DeployDetectorScript : MonoBehaviour {
 	public GameObject mainSystem;
 	private MainSystemScript mainSystemScript;
 
@@ -18,7 +18,7 @@ public class StartDetectorScript : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Ball")) {
-			mainSystemScript.PlayStart();
+			mainSystemScript.Deployed();
 		}
 	}
 }
