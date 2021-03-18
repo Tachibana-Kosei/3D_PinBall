@@ -5,13 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TargetController_MedalTargetScript : MonoBehaviour{
-	
-	void Start(){
-		
-	}
+public class LightController_FuelTargetScript : LightController_BasicScript {
 
 	void Update(){
-		
 	}
 }

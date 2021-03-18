@@ -5,10 +5,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TargetController_FieldMultiplierTargetScript : MonoBehaviour{
-	
-	void Start(){
-		
+public class TargetController_BoosterTargetScript : TargetController_BasicScript{
+	protected override void OnEveryDropped() {
+		throw new NotImplementedException();
 	}
 
 	void Update(){

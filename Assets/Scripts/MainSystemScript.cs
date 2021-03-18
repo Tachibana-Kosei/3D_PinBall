@@ -20,10 +20,17 @@ public class MainSystemScript : MonoBehaviour {
 	private GameState gameState;
 	private float deployedTime;
 	public bool replayable = false;
-	private float replayableTime = 15f;
+	private readonly float replayableTime = 15f;
+	public int fieldMultiplyRate = 1;
+	public int bonusMultiplyRate = 1;
+	public bool jackpotEnable = false;
+	public bool bonusEnable = false;
+	public bool bonusHold = false;
+	private long jackpotScore = 0;
+	private long bonusScore = 0;
 
 	private enum GameState {
-		OnStandby,ReDeploying, Playing
+		OnStandby, ReDeploying, Playing
 	}
 
 	private void Start() {
@@ -91,23 +98,33 @@ public class MainSystemScript : MonoBehaviour {
 		Debug.Log("Add Life:" + addNum + ", Now Life:" + life);
 	}
 
+	//コメントを入れられるオーバーロードメソッド。
+	public void AddLife(int addNum, string comment) {
+		life += addNum;
+		Debug.Log("Add Life:" + addNum + ", Now Life:" + life + ", Comment:\"" + comment + "\"");
+	}
+
 	//クラッシュ処理
 	public void Crash() {
-		if (gameTime_nowPlay - deployedTime > replayableTime || replayable) {
+		if (gameTime_nowPlay - deployedTime <= replayableTime || replayable) {//リプレイ処理
+			Debug.Log("Re-Deploy");
+			gameState = GameState.ReDeploying;
+			BallSpown();
+		} else {//クラッシュ処理
 			AddScore(10000, "Crash Bonus, Now play time:" + gameTime_nowPlay);
 			life -= 1;
 			gameState = GameState.OnStandby;
 			CanvasUpdate();
 			gameTime_nowPlay = 0f;
+			jackpotEnable = false;
+			jackpotScore = 0;
+			if (!bonusHold) { bonusScore = 0; }
+			bonusHold = false;
 			if (life > 0) {
 				BallSpown();
 			} else if (life == 0) {
 				Gameover();
 			}
-		} else {
-			Debug.Log("Re-Deploy");
-			gameState = GameState.ReDeploying;
-			BallSpown();
 		}
 	}
 

@@ -5,19 +5,15 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LightController_SpaceWarpRollOverScript : LightController_CommonScript{
+public class LightController_SpaceWarpRollOverScript : LightController_BasicScript{
 	public Material lightingMaterial;
 	public Material unlightingMaterial;
 	private MeshRenderer meshRenderer;
 	
-	void Start(){
-		CommonStart();
+	protected override void Start(){
+		base.Start();
 		meshRenderer = GetComponent<MeshRenderer>();
 		meshRenderer.material = unlightingMaterial;
-	}
-
-	void Update(){
-		
 	}
 
 	private void OnTriggerEnter(Collider other) {

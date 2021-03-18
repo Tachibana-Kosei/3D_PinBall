@@ -8,12 +8,13 @@ using UnityEngine.UI;
 public class TargetScript : MonoBehaviour{
 	private Vector3 startPosition;
 	public bool isGetUp=true;
-	private MeshCollider thisMesh;
+	private BoxCollider boxCollider;
 
 	
 	void Start(){
 		startPosition = transform.position;
 		SetState(true);
+		boxCollider = GetComponent<BoxCollider>();
 	}
 
 	void Update(){
@@ -26,7 +27,7 @@ public class TargetScript : MonoBehaviour{
 	}
 	public void SetState(bool isGetUp) {
 		this.isGetUp = isGetUp;
-		thisMesh.isTrigger = !isGetUp;
+		boxCollider.isTrigger = !isGetUp;
 		Vector3 setPosition;
 		if (isGetUp) {
 			setPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z);
