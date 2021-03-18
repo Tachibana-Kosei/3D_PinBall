@@ -20,9 +20,10 @@ public class MainSystemScript : MonoBehaviour {
 	private GameState gameState;
 	private float deployedTime;
 	public bool replayable = false;
+	private float replayableTime = 15f;
 
 	private enum GameState {
-		OnStandby, Playing
+		OnStandby,ReDeploying, Playing
 	}
 
 	private void Start() {
@@ -50,7 +51,7 @@ public class MainSystemScript : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.F2)) {
 			BallSpown();
 		}
-		if (gameState == GameState.Playing) {
+		if (gameState != GameState.OnStandby) {
 			gameTime_nowPlay += Time.deltaTime;
 			gameTime_whole += Time.deltaTime;
 			CanvasUpdate();
@@ -60,8 +61,9 @@ public class MainSystemScript : MonoBehaviour {
 	public void Deployed() {
 		if (gameState != GameState.Playing) {
 			gameState = GameState.Playing;
+			deployedTime = gameTime_nowPlay;
+			Debug.Log("Deployed time: " + deployedTime);
 		}
-		deployedTime = gameTime_nowPlay;
 	}
 
 	public void CanvasUpdate() {
@@ -91,7 +93,7 @@ public class MainSystemScript : MonoBehaviour {
 
 	//クラッシュ処理
 	public void Crash() {
-		if (gameTime_nowPlay-deployedTime > 15f||replayable) {
+		if (gameTime_nowPlay - deployedTime > replayableTime || replayable) {
 			AddScore(10000, "Crash Bonus, Now play time:" + gameTime_nowPlay);
 			life -= 1;
 			gameState = GameState.OnStandby;
@@ -104,6 +106,7 @@ public class MainSystemScript : MonoBehaviour {
 			}
 		} else {
 			Debug.Log("Re-Deploy");
+			gameState = GameState.ReDeploying;
 			BallSpown();
 		}
 	}
