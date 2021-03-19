@@ -16,12 +16,12 @@ public class MainSystemScript : MonoBehaviour {
 	public Text time_whole;
 	private float gameTime_whole = 0f;
 	private float gameTime_nowPlay = 0f;
-	private GameState gameState;
+	public GameState gameState;
 	private float deployedTime;
 	public bool replayable = false;
 	private readonly float replayableTime = 15f;
 	public int fieldMultiplyRate = 1;
-	public int bonusMultiplyRate = 1;
+	public int awardMultiplyRate = 1;
 	public bool jackpotEnable = false;
 	public bool bonusEnable = false;
 	public bool bonusHold = false;
@@ -29,7 +29,7 @@ public class MainSystemScript : MonoBehaviour {
 	private long bonusScore = 0;
 	public List<ControllerBasicScript> controllers;
 
-	private enum GameState {
+	public enum GameState {
 		OnStandby, ReDeploying, Playing
 	}
 
@@ -81,8 +81,8 @@ public class MainSystemScript : MonoBehaviour {
 	}
 
 	//引数の数字の分スコアに加算するメソッド。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる
-	public void AddScore(int addPoint, string comment) {
-		int actualyAddPoint = addPoint * fieldMultiplyRate;
+	public void AddScore(long addPoint, string comment) {
+		long actualyAddPoint = addPoint * fieldMultiplyRate;
 		score += actualyAddPoint;
 		if (jackpotEnable) jackpotScore = actualyAddPoint;
 		if (bonusEnable) bonusScore = actualyAddPoint;
@@ -90,8 +90,17 @@ public class MainSystemScript : MonoBehaviour {
 	}
 
 	//AddScoreのオーバーロード。
-	public void AddScore(int addPoint) {
+	public void AddScore(long addPoint) {
 		AddScore(addPoint, "");
+	}
+
+	public void AwardJackpot() {
+		AddScore(jackpotScore * awardMultiplyRate, "Jackpot Awarded");
+		jackpotScore = 0;
+	}
+
+	public void AwardBonus() {
+		AddScore(bonusScore * awardMultiplyRate, "Bonus Awarded");
 	}
 
 	//引数の数字の分ライフを増やすメソッド。
@@ -108,10 +117,16 @@ public class MainSystemScript : MonoBehaviour {
 
 	//クラッシュ処理
 	public void Crash() {
-		if (gameTime_nowPlay - deployedTime <= replayableTime || replayable) {//リプレイ処理
-			Debug.Log("Re-Deploy");
+		bool replayableByTime = gameTime_nowPlay - deployedTime <= replayableTime;
+		if (replayableByTime || replayable) {//リプレイ処理
 			gameState = GameState.ReDeploying;
 			BallSpown();
+			if (replayableByTime) {
+				Debug.Log("Re-Deploy");
+			} else {
+				Debug.Log("Replay ball");
+				replayable = false;
+			}
 		} else {//クラッシュ処理
 			AddScore(10000, "Crash Bonus, Now play time:" + gameTime_nowPlay);
 			life -= 1;

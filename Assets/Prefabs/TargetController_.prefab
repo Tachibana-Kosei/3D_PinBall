@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3329592440620860956}
   - component: {fileID: 3329592440620860955}
   m_Layer: 0
-  m_Name: TargetController_Medal
+  m_Name: TargetController_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad33efa01784324a9a2cfbd50fcd72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainSystem: {fileID: 0}
   lightController: {fileID: 0}
 --- !u!1 &3329592440805986319
 GameObject:
@@ -148,7 +147,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3329592440805986319}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 160324e0d9a0fce4d8f624586e4a1377, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -256,7 +255,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3329592442208731841}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 160324e0d9a0fce4d8f624586e4a1377, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -364,7 +363,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3329592442210834494}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 160324e0d9a0fce4d8f624586e4a1377, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

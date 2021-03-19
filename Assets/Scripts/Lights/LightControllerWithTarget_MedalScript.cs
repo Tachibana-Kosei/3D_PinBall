@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LightController_MedalTargetScript : LightControllerWithTarget_BasicScript {
+public class LightControllerWithTarget_MedalScript : LightControllerWithTarget_BasicScript {
 
 	protected override void Start() {
 		base.Start();
@@ -13,18 +13,24 @@ public class LightController_MedalTargetScript : LightControllerWithTarget_Basic
 		childrenScript.Reverse();
 		lightingDuration = 30f;
 	}
-	public override void ActiveFunctionOfLevel() {
+
+	public override void FunctionByLevel(bool levelUp) {
 		switch (level) {
 			case 0:
 				break;
+
 			case 1:
-				mainSystem.AddScore(10000,"Level One Commendation");
+				if (levelUp) mainSystem.AddScore(10000, "Level One Commendation");
 				break;
+
 			case 2:
-				mainSystem.AddScore(50000,"Level Two Commendation");
+				if (levelUp) mainSystem.AddScore(50000, "Level Two Commendation");
+
 				break;
+
 			case 3:
-				mainSystem.AddLife(1, "Level Three Commendation");
+				if (levelUp) mainSystem.AddLife(1, "Level Three Commendation");
+
 				break;
 		}
 	}

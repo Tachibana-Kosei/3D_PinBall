@@ -17,17 +17,18 @@ public abstract class LightControllerWithTarget_BasicScript : LightController_Ba
 	}
 
 	public void SetLevel(int level) {
+		bool levelUp = level > this.level;
 		level = Math.Min(level, maxLevel);
 		for (int i = 0; i < maxLevel; i++) {
 			childrenScript[i].SetLight(i < level);
 		}
 		lightingTime = 0f;
 		this.level = level;
-		ActiveFunctionOfLevel();
+		FunctionByLevel(levelUp);
 	}
 
 	public override void Reset() {
 		SetLevel(0);
 	}
-	public abstract void ActiveFunctionOfLevel();
+	public abstract void FunctionByLevel(bool levelUp);
 }

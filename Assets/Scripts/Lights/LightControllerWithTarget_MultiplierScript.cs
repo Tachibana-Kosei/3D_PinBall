@@ -5,14 +5,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LightController_FieldMultiplierScript : LightControllerWithTarget_BasicScript {
+public class LightControllerWithTarget_MultiplierScript : LightControllerWithTarget_BasicScript {
 
 	protected override void Start() {
 		base.Start();
 		lightingDuration = 60f;
 	}
 
-	public override void ActiveFunctionOfLevel() {
+	public override void FunctionByLevel(bool levelUp) {
 		switch (level) {
 			case 0:
 				mainSystem.fieldMultiplyRate = 1;
@@ -20,22 +20,22 @@ public class LightController_FieldMultiplierScript : LightControllerWithTarget_B
 
 			case 1:
 				mainSystem.fieldMultiplyRate = 2;
-				Debug.Log("Field Multiply x2");
+				if(levelUp) Debug.Log("Field Multiply x2");
 				break;
 
 			case 2:
 				mainSystem.fieldMultiplyRate = 3;
-				Debug.Log("Field Multiply x3");
+				if (levelUp) Debug.Log("Field Multiply x3");
 				break;
 
 			case 3:
 				mainSystem.fieldMultiplyRate = 5;
-				Debug.Log("Field Multiply x5");
+				if (levelUp) Debug.Log("Field Multiply x5");
 				break;
 
 			case 4:
 				mainSystem.fieldMultiplyRate = 10;
-				Debug.Log("Field Multiply x10");
+				if (levelUp) Debug.Log("Field Multiply x10");
 				break;
 		}
 	}
