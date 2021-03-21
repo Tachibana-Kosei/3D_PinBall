@@ -824,7 +824,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.42
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -33865,18 +33865,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041019844}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1048051753 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3329592440620860955, guid: 01758c15b1823344ea13a3d0056c2282,
-    type: 3}
-  m_PrefabInstance: {fileID: 3329592441448934599}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad33efa01784324a9a2cfbd50fcd72c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1061380314
 GameObject:
   m_ObjectHideFlags: 0
@@ -35619,12 +35607,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b3684d8ec51394889f5e213b3446a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 1252453038}
   ballPrefab: {fileID: 3601231146883228041, guid: d305026565475f54ab8feff4cd396981,
     type: 3}
   lifeText: {fileID: 78557866}
   scoreText: {fileID: 94155991}
-  time_now: {fileID: 1646715260}
-  time_whole: {fileID: 1104731896}
+  timeNow: {fileID: 1646715260}
+  timeWhole: {fileID: 1104731896}
   gameState: 0
   replayable: 0
   fieldMultiplyRate: 1
@@ -36143,7 +36132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1252453039}
   m_Layer: 0
-  m_Name: BallSpowner
+  m_Name: BallSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36547,7 +36536,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a65ea8f61e8401f499890cc53f33ff63, type: 2}
+  - {fileID: 2100000, guid: a8b05b6c030ac7c4bb16df55a1a688fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -55114,7 +55103,7 @@ GameObject:
   - component: {fileID: 1785047032}
   - component: {fileID: 1785047031}
   m_Layer: 5
-  m_Name: Button
+  m_Name: FunctionTestButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55183,13 +55172,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048051753}
-        m_MethodName: SetAllTarget
-        m_Mode: 6
+      - m_Target: {fileID: 1904648229}
+        m_MethodName: SetLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
