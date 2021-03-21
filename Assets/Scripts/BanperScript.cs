@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BanperScript : MonoBehaviour {
+	private float power = 200f;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -10,7 +11,6 @@ public class BanperScript : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	private float power = 200.0f;
 
 	// リジッドボディに触れた時に呼ばれる
 	private void OnCollisionEnter(Collision other) {
@@ -20,7 +20,7 @@ public class BanperScript : MonoBehaviour {
 			Rigidbody ballRigid = other.transform.GetComponent<Rigidbody>();
 
 			// プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-			ballRigid.AddForce(-ballRigid.velocity * power);
+			ballRigid.AddForce(-ballRigid.velocity.normalized * power);
 
 			//得点 addscore
 
