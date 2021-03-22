@@ -62,6 +62,7 @@ namespace Lights
 
         public IEnumerator BlinkAndSetLightCoroutine(bool isLight)
         {
+            SetLight(isLight);
             int blinkWaitFrame = 10;
             if (this.isLight)
             {

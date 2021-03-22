@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BanperScript : MonoBehaviour {
-	private float power = 1000f;
+	private float power = 1200f;
 
 	MainSystemScript system;   
 	// Start is called before the first frame update
@@ -20,9 +20,11 @@ public class BanperScript : MonoBehaviour {
 		if (other.transform.CompareTag("Ball")) {
 			// プレイヤーのリジッドボディを取得
 			Rigidbody ballRigid = other.transform.GetComponent<Rigidbody>();
+			Vector3 ballSpeed = ballRigid.velocity;
+			ballRigid.velocity=Vector3.zero;
 
 			// プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-			ballRigid.AddForce(-ballRigid.velocity.normalized * power);
+			ballRigid.AddForce(-ballSpeed.normalized * power);
 
 			//得点 addscore
 			system.AddScore(500);
