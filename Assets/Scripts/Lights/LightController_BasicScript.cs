@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ namespace Lights
 				childrenLight= childrenLight.OrderBy(x => x.transform.position.z).ToList();
 			}
 			childrenScript = childrenLight.Select(x => x.GetComponent<LightScript>()).ToList();
+		}
+
+		protected virtual void Update()
+		{
+			if(IsEveryLighting()){childrenScript.ForEach(x=>x.StartCoroutine(x.BlinkAndSetLightCoroutine(false)));}
 		}
 
 		public virtual void SetAllLight(bool isLight) {

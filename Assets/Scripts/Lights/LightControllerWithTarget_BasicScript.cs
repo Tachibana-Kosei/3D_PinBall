@@ -18,7 +18,7 @@ namespace Lights
             maxLevel = childrenScript.Count();
         }
 
-        protected void Update()
+        protected override void Update()
         {
             if (mainSystem.gameState != MainSystemScript.GameState.OnStandby && level > 0)
             {

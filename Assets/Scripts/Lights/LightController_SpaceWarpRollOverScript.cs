@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Lights
 {
 	public class LightController_SpaceWarpRollOverScript : LightController_BasicScript{
 		public Material lightingMaterial;
-		public Material unlightingMaterial;
+		public Material unLightingMaterial;
 		private MeshRenderer meshRenderer;
 	
 		protected override void Start(){
 			base.Start();
 			meshRenderer = GetComponent<MeshRenderer>();
-			meshRenderer.material = unlightingMaterial;
+			meshRenderer.material = unLightingMaterial;
+		}
+
+		protected override void Update()
+		{
 		}
 
 		private void OnTriggerEnter(Collider other) {
@@ -21,7 +26,7 @@ namespace Lights
 		}
 		private void OnTriggerExit(Collider other) {
 			if (other.CompareTag("Ball")) {
-				meshRenderer.material = unlightingMaterial;
+				meshRenderer.material = unLightingMaterial;
 			}
 		}
 	}

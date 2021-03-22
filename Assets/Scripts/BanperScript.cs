@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BanperScript : MonoBehaviour {
-	private float power = 200f;
+	private float power = 1000f;
 
+	MainSystemScript system;   
 	// Start is called before the first frame update
 	void Start() {
+		system = GameObject.Find("MainSystem").GetComponent<MainSystemScript>();
 
 	}
 
@@ -23,6 +25,7 @@ public class BanperScript : MonoBehaviour {
 			ballRigid.AddForce(-ballRigid.velocity.normalized * power);
 
 			//得点 addscore
+			system.AddScore(500);
 
 
 		}

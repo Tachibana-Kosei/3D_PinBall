@@ -19,6 +19,7 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>.vs</Path>
+      <Path>3D_PinBall</Path>
       <Path>Build</Path>
       <Path>Library</Path>
       <Path>Logs</Path>

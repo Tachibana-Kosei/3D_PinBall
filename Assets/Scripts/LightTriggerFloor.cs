@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Lights;
 using UnityEngine;
 
-public class LightTriggerFloor : LightScript
+public class LightTriggerFloor : MonoBehaviour
 {
     GameObject gameobject;
     private GameObject mainSystem;
@@ -11,7 +11,6 @@ public class LightTriggerFloor : LightScript
 
     void Start()
     {
-        
         gameobject = transform.parent.gameObject;
         mainSystem = GameObject.FindGameObjectWithTag("MainSystem");
         mainSystemScript = mainSystem.GetComponent<MainSystemScript>();
