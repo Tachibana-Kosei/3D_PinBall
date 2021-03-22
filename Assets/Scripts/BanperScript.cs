@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BanperScript : MonoBehaviour
-{
+public class BanperScript : MonoBehaviour {
+	private float power = 200f;
 
-    MainSystemScript system;
-    private float power = 5000.0f;
+	// Start is called before the first frame update
+	void Start() {
 
-    private void Start()
-    {
-        system = GameObject.Find("MainSystem").GetComponent<MainSystemScript>();
-    }
+	}
 
-    // リジッドボディに触れた時に呼ばれる
-    private void OnCollisionEnter(Collision other)
-    {
-        // 今回はタグでプレイヤーかどうか判断
-        if (other.transform.CompareTag("Ball"))
-        {
-            // プレイヤーのリジッドボディを取得
-            Rigidbody ballRigid = other.transform.GetComponent<Rigidbody>();
+	// Update is called once per frame
 
-            // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-            ballRigid.AddForce(-ballRigid.velocity.normalized * power  );
+	// リジッドボディに触れた時に呼ばれる
+	private void OnCollisionEnter(Collision other) {
+		// 今回はタグでプレイヤーかどうか判断
+		if (other.transform.CompareTag("Ball")) {
+			// プレイヤーのリジッドボディを取得
+			Rigidbody ballRigid = other.transform.GetComponent<Rigidbody>();
 
-            //得点 addscore
-            system.AddScore(500);
-            
-        }
-    }
+			// プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
+			ballRigid.AddForce(-ballRigid.velocity.normalized * power);
+
+			//得点 addscore
+
+
+		}
+	}
 }

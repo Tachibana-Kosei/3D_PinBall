@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Ball
   - MainSystem
+  - Light
   layers:
   - Default
   - TransparentFX
