@@ -25,7 +25,6 @@ namespace Lights
         //引数のbool型で点灯状態を変える。trueで点灯。
         public void SetLight(bool isLight)
         {
-            Debug.Log(isLight);
             this.isLight = isLight;
             if (isLight)
             {

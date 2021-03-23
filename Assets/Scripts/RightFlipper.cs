@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Lights;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ public class RightFlipper : MonoBehaviour {
 	private HingeJoint hjR;
 
 	private JointSpring jR;
+	[SerializeField]private GameObject lightController_ReEntry;
+	private LightController_Re_EntryLaneScript lightControllerReEntryLaneScript;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -23,6 +26,7 @@ public class RightFlipper : MonoBehaviour {
 		hjR.useSpring = true;
 
 		jR = hjR.spring;
+		lightControllerReEntryLaneScript = lightController_ReEntry.GetComponent<LightController_Re_EntryLaneScript>();
 
 	}
 
@@ -32,6 +36,7 @@ public class RightFlipper : MonoBehaviour {
 			jR.spring = spring;
 			jR.targetPosition = -openAngle;
 			hjR.spring = jR;
+			lightControllerReEntryLaneScript.LightMove_toR();
 		}
 		if (Input.GetKeyUp("j")) {
 			jR.spring = spring;

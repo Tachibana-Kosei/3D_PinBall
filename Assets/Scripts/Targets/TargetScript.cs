@@ -29,7 +29,7 @@ public class TargetScript : MonoBehaviour {
 		if (isGetUp) {
 			setPosition = new Vector3(startPosition.x, startPosition.y, startPosition.z);
 		} else {
-			setPosition = new Vector3(startPosition.x, startPosition.y - transform.localScale.y * 0.4f * Mathf.Sqrt(3), startPosition.z + transform.localScale.y * 0.4f);
+			setPosition = new Vector3(startPosition.x, startPosition.y - transform.lossyScale.y * 0.4f * Mathf.Sqrt(3), startPosition.z + transform.lossyScale.y * 0.4f);
 		}
 		transform.position = setPosition;
 	}

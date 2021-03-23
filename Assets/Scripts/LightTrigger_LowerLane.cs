@@ -30,7 +30,7 @@ public class LightTrigger_LowerLane : MonoBehaviour
             if (lightScript.isLight)
             {
                 lightScript.SetLight(false);
-                mainSystemScript.AddScore(20000);
+                mainSystemScript.AddScore(50000);
             }
             else
             {

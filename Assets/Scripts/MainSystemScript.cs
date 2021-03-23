@@ -70,7 +70,7 @@ public class MainSystemScript : MonoBehaviour
             BallSpawn();
         }
 
-        if (gameState != GameState.OnStandby)
+        if (gameState ==GameState.Playing)
         {
             gameTimeNowPlay += Time.deltaTime;
             gameTimeWhole += Time.deltaTime;
