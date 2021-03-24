@@ -47,7 +47,7 @@ public abstract class TargetController_BasicScript : ControllerBasicScript {
 		childrenTargetScript.ForEach(x => x.SetState(isGetUp));
 	}
 
-	public override void Reset() {
+	public override void ResetMethod() {
 		SetAllTarget(true);
 	}
 }

@@ -6,7 +6,7 @@ public class SlingshotScript : MonoBehaviour
 {
     
     MainSystemScript system;   
-    private float power = 1200.0f;
+    private float power = 1000.0f;
 
     private void Start()
     {

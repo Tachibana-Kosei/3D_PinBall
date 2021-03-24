@@ -63,7 +63,7 @@ namespace Lights
             SetLevel(level - 1);
         }
 
-        public override void Reset()
+        public override void ResetMethod()
         {
             SetLevel(0);
             lightingTime = 0f;

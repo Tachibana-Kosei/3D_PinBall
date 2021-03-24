@@ -22,9 +22,10 @@ public class BanperScript : MonoBehaviour {
 			Rigidbody ballRigid = other.transform.GetComponent<Rigidbody>();
 			Vector3 ballSpeed = ballRigid.velocity;
 			ballRigid.velocity=Vector3.zero;
+			var disBall = ballRigid.transform.position - transform.position;
 
 			// プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-			ballRigid.AddForce(-ballSpeed.normalized * power);
+			ballRigid.AddForce((disBall.normalized-ballSpeed.normalized) * power);
 
 			//得点 addscore
 			system.AddScore(500);

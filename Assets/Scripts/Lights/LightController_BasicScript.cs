@@ -35,7 +35,7 @@ namespace Lights
 			return childrenScript.All(value => value.isLight);
 		}
 
-		public override void Reset() {
+		public override void ResetMethod() {
 			SetAllLight(false);
 		}
 	}

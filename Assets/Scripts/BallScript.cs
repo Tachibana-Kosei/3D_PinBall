@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class BallScript : MonoBehaviour{
 	private MainSystemScript mainSystem;
 	private Rigidbody rb;
-	private float max = 45;
+	private float max = 40;
 	
 	void Start(){
 		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
@@ -22,9 +22,8 @@ public class BallScript : MonoBehaviour{
 		}
 
 		float speed = rb.velocity.magnitude;
-		if (speed>max)
+		if (speed>max&& mainSystem.gameState==MainSystemScript.GameState.Playing)
 		{
-			Debug.Log("speed");
 			rb.velocity = rb.velocity.normalized * max;
 		}
 	}

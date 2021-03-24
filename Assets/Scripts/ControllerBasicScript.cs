@@ -11,5 +11,5 @@ public abstract class ControllerBasicScript : MonoBehaviour {
 		mainSystem = GameObject.FindGameObjectWithTag("MainSystem").GetComponent<MainSystemScript>();
 		mainSystem.controllers.Add(this);
 	}
-	public abstract void Reset();
+	public abstract void ResetMethod();
 }

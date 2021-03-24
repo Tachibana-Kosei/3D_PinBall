@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class MainSystemScript : MonoBehaviour
 {
-    private int life = 30;
+    private const int maxLife = 30;
+    private int life = maxLife;
     private long score = 0;
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject ballPrefab;
@@ -19,7 +20,7 @@ public class MainSystemScript : MonoBehaviour
     private float gameTimeNowPlay = 0f;
     public GameState gameState;
     private float deployedTime;
-    public bool replayable = false;
+    private bool replayable = false;
     private const float ReplayableTime = 15f;
     public int fieldMultiplyRate = 1;
     public int awardMultiplyRate = 1;
@@ -46,7 +47,7 @@ public class MainSystemScript : MonoBehaviour
     {
         gameState = GameState.OnStandby;
         CanvasUpdate();
-        controllers.ForEach(x => x.Reset());
+        controllers.ForEach(x => x.ResetMethod());
         if (life > 0)
         {
             BallSpawn();
@@ -67,10 +68,10 @@ public class MainSystemScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            BallSpawn();
+            GameReset();
         }
 
-        if (gameState ==GameState.Playing)
+        if (gameState == GameState.Playing)
         {
             gameTimeNowPlay += Time.deltaTime;
             gameTimeWhole += Time.deltaTime;
@@ -118,7 +119,7 @@ public class MainSystemScript : MonoBehaviour
     }
 
     //引数の数字の分ライフを増やすメソッド。
-    public void AddLife(int addNum, string comment="")
+    public void AddLife(int addNum, string comment = "")
     {
         life += addNum;
         Debug.Log("Add Life:" + addNum + ", Now Life:" + life + ", Comment:\"" + comment + "\"");
@@ -166,5 +167,25 @@ public class MainSystemScript : MonoBehaviour
     {
         Debug.Log("GameOver!! Score:" + score);
         Debug.Log("Play time: " + gameTimeWhole);
+    }
+
+
+    private void GameReset()
+    {
+        Destroy(GameObject.FindWithTag("Ball"));
+        life = maxLife;
+        score = 0;
+        gameTimeWhole = 0f;
+        gameTimeNowPlay = 0f;
+        replayable = false;
+        fieldMultiplyRate = 1;
+        awardMultiplyRate = 1;
+        jackpotEnable = false;
+        bonusEnable = false;
+        bonusHold = false;
+        jackpotScore = 0;
+        bonusScore = 0;
+
+        OnStandby();
     }
 }
