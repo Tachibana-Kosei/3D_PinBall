@@ -16,12 +16,14 @@ namespace Lights
 
 		protected override void Update()
 		{
+			//記述なしでOK
 		}
 
 		private void OnTriggerEnter(Collider other) {
 			if (other.CompareTag("Ball")) {
 				childrenScript.ForEach(x => x.SetLight(true));
 				meshRenderer.material = lightingMaterial;
+				mainSystem.audioSource.PlayOneShot(mainSystem.rollOverSound);
 			}
 		}
 		private void OnTriggerExit(Collider other) {

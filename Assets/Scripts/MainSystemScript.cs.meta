@@ -4,12 +4,15 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - spawner: {instanceID: 0}
   - ballPrefab: {fileID: 3601231146883228041, guid: d305026565475f54ab8feff4cd396981,
       type: 3}
   - lifeText: {instanceID: 0}
   - scoreText: {instanceID: 0}
-  - time_now: {instanceID: 0}
-  - time_whole: {instanceID: 0}
+  - timeNow: {instanceID: 0}
+  - timeWhole: {instanceID: 0}
+  - ballSpawnSound: {fileID: 8300000, guid: d9fbe5dc979580f4aaced7f0481c5e78, type: 3}
+  - gameOverSound: {fileID: 8300000, guid: f8d9d74e39f4a53469dc1499092296d9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
