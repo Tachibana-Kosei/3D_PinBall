@@ -16,6 +16,12 @@ public class LeftFlipper : MonoBehaviour {
 	private JointSpring jL;
 	[SerializeField]private GameObject lightController_ReEntry;
 	private LightController_Re_EntryLaneScript lightControllerReEntryLaneScript;
+    
+	private AudioSource audioSource;
+   
+	public AudioClip SE1;
+
+	public AudioClip SE2;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -26,7 +32,10 @@ public class LeftFlipper : MonoBehaviour {
 		hjL.useSpring = true;
 
 		jL = hjL.spring;
+
 		lightControllerReEntryLaneScript = lightController_ReEntry.GetComponent<LightController_Re_EntryLaneScript>();
+
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -36,11 +45,13 @@ public class LeftFlipper : MonoBehaviour {
 			jL.targetPosition = openAngle;
 			hjL.spring = jL;
 			lightControllerReEntryLaneScript.LightMove_toL();
+			audioSource.PlayOneShot(SE1);
 		}
 		if (Input.GetKeyUp("f")) {
 			jL.spring = spring;
 			jL.targetPosition = closeAngle;
 			hjL.spring = jL;
+			audioSource.PlayOneShot(SE2);
 		}
 	}
 }
