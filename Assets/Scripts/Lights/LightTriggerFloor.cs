@@ -21,8 +21,12 @@ public class LightTriggerFloor : MonoBehaviour
     {
         if (t.gameObject.CompareTag("Ball"))
         {
+            //ライトの点滅
             gameobject.GetComponent<LightScript>().ToggleLight();
+            //得点
             mainSystemScript.AddScore(2000);
+            //効果音
+            GetComponent<AudioSource>().Play();
         }
     }
 }

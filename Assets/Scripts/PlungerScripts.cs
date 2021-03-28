@@ -33,6 +33,7 @@ public class PlungerScripts : MonoBehaviour {
 				}
 			}
 			if (Input.GetKeyUp(KeyCode.Space)) {
+				GetComponent<AudioSource>().Play();
 				foreach (Rigidbody r in ballList) {
 					r.AddForce(0, power, power * Mathf.Sqrt(3f));
 				}
