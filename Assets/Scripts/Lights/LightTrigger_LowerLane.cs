@@ -36,6 +36,7 @@ public class LightTrigger_LowerLane : MonoBehaviour
             {
                 mainSystemScript.AddScore(10000);
             }
+            GetComponent<AudioSource>().Play();
         }
     }
 }
