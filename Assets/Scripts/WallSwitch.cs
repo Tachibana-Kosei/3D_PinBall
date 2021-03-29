@@ -9,10 +9,16 @@ public class WallSwitch : MonoBehaviour
 
     [SerializeField] GameObject YellowLight;
 
+    private AudioSource audioSource;
+
+    public AudioClip SE;
+
     // Start is called before the first frame update
     void Start()
     {
         wallSwitch = GameObject.Find("MainSystem");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -21,6 +27,8 @@ public class WallSwitch : MonoBehaviour
         {
             wallSwitch.GetComponent<MainSystemScript>().AddScore(750, "WallSwitch Score");
             YellowLight.GetComponent<LightScript>().SetLight(true);
+
+            audioSource.PlayOneShot(SE);
         }
     }
 }

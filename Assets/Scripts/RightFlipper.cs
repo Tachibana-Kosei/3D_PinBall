@@ -17,6 +17,11 @@ public class RightFlipper : MonoBehaviour {
 	[SerializeField]private GameObject lightController_ReEntry;
 	private LightController_Re_EntryLaneScript lightControllerReEntryLaneScript;
 
+	private AudioSource audioSource;
+
+	public AudioClip SE1;
+
+	public AudioClip SE2;
 	// Start is called before the first frame update
 	void Start() {
 		GameObject RightFlipper = GameObject.Find("CylinderR");
@@ -28,6 +33,7 @@ public class RightFlipper : MonoBehaviour {
 		jR = hjR.spring;
 		lightControllerReEntryLaneScript = lightController_ReEntry.GetComponent<LightController_Re_EntryLaneScript>();
 
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -37,11 +43,13 @@ public class RightFlipper : MonoBehaviour {
 			jR.targetPosition = -openAngle;
 			hjR.spring = jR;
 			lightControllerReEntryLaneScript.LightMove_toR();
+			audioSource.PlayOneShot(SE1);
 		}
 		if (Input.GetKeyUp("j")) {
 			jR.spring = spring;
 			jR.targetPosition = -closeAngle;
 			hjR.spring = jR;
+			audioSource.PlayOneShot(SE2);
 		}
 	}
 }
