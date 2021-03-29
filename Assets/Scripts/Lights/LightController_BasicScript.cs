@@ -8,6 +8,7 @@ namespace Lights
 	public abstract class LightController_BasicScript : ControllerBasicScript {
 		public List<GameObject> childrenLight;
 		public List<LightScript> childrenScript;
+		private AudioSource audioSource;
 
 		protected override void Start() {
 			base.Start();
@@ -20,11 +21,16 @@ namespace Lights
 				childrenLight= childrenLight.OrderBy(x => x.transform.position.z).ToList();
 			}
 			childrenScript = childrenLight.Select(x => x.GetComponent<LightScript>()).ToList();
+			audioSource= gameObject.AddComponent<AudioSource>();
 		}
 
 		protected virtual void Update()
 		{
-			if(IsEveryLighting()){childrenScript.ForEach(x=>x.StartCoroutine(x.BlinkAndSetLightCoroutine(false)));}
+			if (IsEveryLighting())
+			{
+				childrenScript.ForEach(x=>x.StartCoroutine(x.BlinkAndSetLightCoroutine(false)));
+				audioSource.PlayOneShot(mainSystem.lightBlinkSound);
+			}
 		}
 
 		public virtual void SetAllLight(bool isLight) {

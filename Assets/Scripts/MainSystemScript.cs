@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MainSystemScript : MonoBehaviour
 {
-    private const int maxLife = 30;
+    private const int maxLife = 1;
     private int life = maxLife;
     private long score = 0;
     [SerializeField] private GameObject spawner;
@@ -30,6 +30,13 @@ public class MainSystemScript : MonoBehaviour
     private long jackpotScore = 0;
     private long bonusScore = 0;
     public List<ControllerBasicScript> controllers;
+    public AudioSource audioSource;
+    [SerializeField] private AudioClip ballSpawnSound;
+    [SerializeField] private AudioClip gameOverSound;
+    public AudioClip targetSound;
+    public AudioClip lightBlinkSound;
+    public AudioClip rollOverSound;
+    public AudioClip levelUpSound;
 
     public enum GameState
     {
@@ -40,6 +47,7 @@ public class MainSystemScript : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         OnStandby();
     }
 
@@ -62,6 +70,7 @@ public class MainSystemScript : MonoBehaviour
     private void BallSpawn()
     {
         Instantiate(ballPrefab, spawner.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(ballSpawnSound);
     }
 
     private void Update()
@@ -93,8 +102,8 @@ public class MainSystemScript : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
         lifeText.text = "Life: " + life;
-        timeNow.text = "Time(now): " + gameTimeNowPlay.ToString("0.0");
-        timeWhole.text = "Time(whole): " + gameTimeWhole.ToString("0.0");
+        timeNow.text = "Time(現在のゲーム): " + gameTimeNowPlay.ToString("0.0");
+        timeWhole.text = "Time(合計): " + gameTimeWhole.ToString("0.0");
     }
 
     //引数の数字の分スコアに加算するメソッド。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる
@@ -167,6 +176,7 @@ public class MainSystemScript : MonoBehaviour
     {
         Debug.Log("GameOver!! Score:" + score);
         Debug.Log("Play time: " + gameTimeWhole);
+        audioSource.PlayOneShot(gameOverSound);
     }
 
 

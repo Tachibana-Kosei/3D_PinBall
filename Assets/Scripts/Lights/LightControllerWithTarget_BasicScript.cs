@@ -43,6 +43,7 @@ namespace Lights
 
             lightingTime = 0f;
             level = newLevel;
+            if(levelUp) mainSystem.audioSource.PlayOneShot(mainSystem.levelUpSound);
             FunctionByLevel(levelUp);
         }
 
