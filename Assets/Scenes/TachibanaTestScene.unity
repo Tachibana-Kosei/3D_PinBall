@@ -1102,7 +1102,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 314.9, y: 241}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78557866
 MonoBehaviour:
@@ -1454,7 +1454,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -21.190002}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94155991
 MonoBehaviour:
@@ -2177,7 +2177,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
@@ -10112,7 +10112,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
@@ -37489,7 +37489,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -60.1}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1104731896
 MonoBehaviour:
@@ -37523,7 +37523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time(whole):'
+  m_Text: "Time(\u5408\u8A08):"
 --- !u!222 &1104731897
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38354,7 +38354,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
@@ -39350,7 +39350,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
@@ -40515,13 +40515,13 @@ Transform:
   - {fileID: 463330006}
   - {fileID: 1181416672}
   - {fileID: 2123128715}
+  - {fileID: 1773429566}
   - {fileID: 515593064}
   - {fileID: 1845327372}
   - {fileID: 761884810}
   - {fileID: 692181463}
-  - {fileID: 1773429566}
-  - {fileID: 1848951741}
   - {fileID: 2031580071}
+  - {fileID: 1848951741}
   - {fileID: 2055335512}
   m_Father: {fileID: 1295339717}
   m_RootOrder: 6
@@ -51008,7 +51008,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
@@ -59630,7 +59630,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -39.93}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 250, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646715260
 MonoBehaviour:
@@ -59664,7 +59664,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time(now):'
+  m_Text: "Time(\u73FE\u5728\u306E\u30B2\u30FC\u30E0):"
 --- !u!222 &1646715261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -60093,7 +60093,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
@@ -67281,7 +67281,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0}
+  m_BackGroundColor: {r: 0.6415094, g: 0.63243145, b: 0.63243145, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -68144,7 +68144,7 @@ PrefabInstance:
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7289985435053231514, guid: ee278cc813bc8424c80cf771aff97d6f,
         type: 3}

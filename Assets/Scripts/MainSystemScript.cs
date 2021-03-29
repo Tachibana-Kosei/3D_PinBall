@@ -102,8 +102,8 @@ public class MainSystemScript : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
         lifeText.text = "Life: " + life;
-        timeNow.text = "Time(now): " + gameTimeNowPlay.ToString("0.0");
-        timeWhole.text = "Time(whole): " + gameTimeWhole.ToString("0.0");
+        timeNow.text = "Time(現在のゲーム): " + gameTimeNowPlay.ToString("0.0");
+        timeWhole.text = "Time(合計): " + gameTimeWhole.ToString("0.0");
     }
 
     //引数の数字の分スコアに加算するメソッド。第2引数に文字列を入れることでデバッグ出力にコメントを入れられる

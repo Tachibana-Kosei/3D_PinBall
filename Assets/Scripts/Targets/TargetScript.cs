@@ -40,8 +40,7 @@ public class TargetScript : MonoBehaviour
         else
         {
             mainSystemScript.audioSource.PlayOneShot(mainSystemScript.targetSound);
-            setPosition = new Vector3(startPosition.x, startPosition.y - transform.lossyScale.y * 0.4f * Mathf.Sqrt(3),
-                startPosition.z + transform.lossyScale.y * 0.4f);
+            setPosition = new Vector3(startPosition.x, startPosition.y - transform.lossyScale.y * 0.4f * Mathf.Sqrt(3),startPosition.z + transform.lossyScale.y * 0.4f);
         }
 
         transform.position = setPosition;
