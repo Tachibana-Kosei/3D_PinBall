@@ -6,7 +6,7 @@ public class SlingshotScript : MonoBehaviour
 {
     
     MainSystemScript system;   
-    private float power = 5000.0f;
+    private float power = 1000.0f;
 
     private void Start()
     {
@@ -22,9 +22,15 @@ public class SlingshotScript : MonoBehaviour
         {
             // プレイヤーのリジッドボディを取得
             Rigidbody ballRigid = other.transform.GetComponent<Rigidbody>();
-
-            // プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
-            ballRigid.AddForce(-ballRigid.velocity.normalized * power);
+            Vector3 disBall = (other.transform.position - transform.position).normalized;
+            if ((disBall-transform.right).magnitude<(disBall+transform.right).magnitude)
+            {
+                ballRigid.AddForce(transform.right*power);
+            }
+            else
+            {
+                ballRigid.AddForce(-transform.right*power);
+            }
 
             //得点 addscore
             system.AddScore(500);

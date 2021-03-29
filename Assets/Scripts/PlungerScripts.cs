@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class PlungerScripts : MonoBehaviour {
 	float power;
-	float minPower = 0.0f;
 	public float maxPower = 100f;
-	public Slider powerSlider;
 	List<Rigidbody> ballList;
 	bool ballReady;
 
@@ -35,6 +33,7 @@ public class PlungerScripts : MonoBehaviour {
 				}
 			}
 			if (Input.GetKeyUp(KeyCode.Space)) {
+				GetComponent<AudioSource>().Play();
 				foreach (Rigidbody r in ballList) {
 					r.AddForce(0, power, power * Mathf.Sqrt(3f));
 				}

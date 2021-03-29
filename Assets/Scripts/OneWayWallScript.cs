@@ -7,25 +7,20 @@ using UnityEngine.UI;
 
 public class OneWayWallScript : MonoBehaviour {
 
-	private MeshCollider thisMesh;
+	private Collider col;
 	void Start() {
-		thisMesh = GetComponent<MeshCollider>();
-		thisMesh.isTrigger = false;
-		thisMesh.enabled = false;
-	}
-
-	void Update() {
-
+		col = GetComponent<Collider>();
+		col.enabled = true;
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag("Ball")) {
-			thisMesh.enabled = false;
+			col.enabled = false;
 		}
 	}
 	private void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag("Ball")) {
-			thisMesh.enabled = true;
+			col.enabled = true;
 		}
 	}
 }
