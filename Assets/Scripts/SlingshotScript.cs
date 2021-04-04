@@ -7,10 +7,12 @@ public class SlingshotScript : MonoBehaviour
     
     MainSystemScript system;   
     private float power = 1000.0f;
+    private AudioSource audioSource;
 
     private void Start()
     {
         system = GameObject.Find("MainSystem").GetComponent<MainSystemScript>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -31,6 +33,8 @@ public class SlingshotScript : MonoBehaviour
             {
                 ballRigid.AddForce(-transform.right*power);
             }
+            //Sound
+            audioSource.Play();
 
             //得点 addscore
             system.AddScore(500);

@@ -24,9 +24,8 @@ public class RightFlipper : MonoBehaviour {
 	public AudioClip SE2;
 	// Start is called before the first frame update
 	void Start() {
-		GameObject RightFlipper = GameObject.Find("CylinderR");
 
-		hjR = RightFlipper.GetComponent<HingeJoint>();
+		hjR = GetComponent<HingeJoint>();
 
 		hjR.useSpring = true;
 

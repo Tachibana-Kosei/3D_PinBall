@@ -24,7 +24,7 @@
 					break;
 
 				case 3:
-					if (levelUp) mainSystem.AddLife(1, "Level Three Commendation");
+					if (levelUp) mainSystem.AddLife(1, "Level Three Commendation\nExtra Ball");
 
 					break;
 			}

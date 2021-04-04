@@ -13,9 +13,6 @@ public class DeployDetectorScript : MonoBehaviour {
 		mainSystemScript = mainSystem.GetComponent<MainSystemScript>();
 	}
 
-	private void Update() {
-	}
-
 	private void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Ball")) {
 			mainSystemScript.Deployed();

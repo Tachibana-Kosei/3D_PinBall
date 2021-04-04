@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlungerScripts : MonoBehaviour {
 	float power;
 	public float maxPower = 100f;
-	List<Rigidbody> ballList;
+	[SerializeField]List<Rigidbody> ballList;
 	bool ballReady;
 
 	void Start() {
@@ -24,6 +24,7 @@ public class PlungerScripts : MonoBehaviour {
 		}
 
 
+		ballList.RemoveAll(x=>x==null);
 		//powerSlider.value = power;
 		if (ballList.Count > 0) {
 			ballReady = true;

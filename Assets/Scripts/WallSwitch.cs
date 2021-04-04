@@ -25,7 +25,7 @@ public class WallSwitch : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            wallSwitch.GetComponent<MainSystemScript>().AddScore(750, "WallSwitch Score");
+            wallSwitch.GetComponent<MainSystemScript>().AddScore(750);
             YellowLight.GetComponent<LightScript>().SetLight(true);
 
             audioSource.PlayOneShot(SE);

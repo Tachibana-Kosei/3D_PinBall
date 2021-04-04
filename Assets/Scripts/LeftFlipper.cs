@@ -25,9 +25,8 @@ public class LeftFlipper : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		GameObject LeftFlipper = GameObject.Find("CylinderL");
 
-		hjL = LeftFlipper.GetComponent<HingeJoint>();
+		hjL = GetComponent<HingeJoint>();
 
 		hjL.useSpring = true;
 

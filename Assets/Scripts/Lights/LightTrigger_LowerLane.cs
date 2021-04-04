@@ -30,11 +30,11 @@ public class LightTrigger_LowerLane : MonoBehaviour
             if (lightScript.isLight)
             {
                 lightScript.SetLight(false);
-                mainSystemScript.AddScore(50000);
+                mainSystemScript.AddScore(5000);
             }
             else
             {
-                mainSystemScript.AddScore(10000);
+                mainSystemScript.AddScore(2000);
             }
             GetComponent<AudioSource>().Play();
         }

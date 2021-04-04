@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TachibanaTestScene.unity
+    guid: 297d43d7653375b4ea0a851ffbd1590f
   m_configObjects: {}

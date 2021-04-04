@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static MainStaticScript;
 
 namespace Lights
 {
@@ -17,22 +18,22 @@ namespace Lights
 
 				case 1:
 					mainSystem.fieldMultiplyRate = 2;
-					if (levelUp) Debug.Log("Field Multiply x2");
+					if (levelUp) SetMessage("Point Multiply x2");
 					break;
 
 				case 2:
 					mainSystem.fieldMultiplyRate = 3;
-					if (levelUp) Debug.Log("Field Multiply x3");
+					if (levelUp) SetMessage("Point Multiply x3");
 					break;
 
 				case 3:
 					mainSystem.fieldMultiplyRate = 5;
-					if (levelUp) Debug.Log("Field Multiply x5");
+					if (levelUp) SetMessage("Point Multiply x5");
 					break;
 
 				case 4:
 					mainSystem.fieldMultiplyRate = 10;
-					if (levelUp) Debug.Log("Field Multiply x10");
+					if (levelUp) SetMessage("Point Multiply x10");
 					break;
 			}
 		}

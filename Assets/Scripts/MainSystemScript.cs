@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.UI;
+using static MainStaticScript;
 
 public class MainSystemScript : MonoBehaviour
 {
-    private const int maxLife = 1;
+    private const int maxLife = 3;
     private int life = maxLife;
     private long score = 0;
     [SerializeField] private GameObject spawner;
@@ -16,6 +18,7 @@ public class MainSystemScript : MonoBehaviour
     [SerializeField] private Text scoreText;
     public Text timeNow;
     public Text timeWhole;
+    [SerializeField] private Text messageText;
     private float gameTimeWhole = 0f;
     private float gameTimeNowPlay = 0f;
     public GameState gameState;
@@ -37,6 +40,7 @@ public class MainSystemScript : MonoBehaviour
     public AudioClip lightBlinkSound;
     public AudioClip rollOverSound;
     public AudioClip levelUpSound;
+    [SerializeField] private AudioClip deployedSound;
 
     public enum GameState
     {
@@ -48,7 +52,9 @@ public class MainSystemScript : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        MainStaticScript.messageText = messageText;
         OnStandby();
+        SetMessage("Game Start");
     }
 
     private void OnStandby()
@@ -94,7 +100,8 @@ public class MainSystemScript : MonoBehaviour
         {
             gameState = GameState.Playing;
             deployedTime = gameTimeNowPlay;
-            Debug.Log("Deployed time: " + deployedTime);
+            audioSource.PlayOneShot(deployedSound);
+            SetMessage("Deployed");
         }
     }
 
@@ -114,6 +121,7 @@ public class MainSystemScript : MonoBehaviour
         if (jackpotEnable) jackpotScore = actuallyAddPoint;
         if (bonusEnable) bonusScore = actuallyAddPoint;
         Debug.Log("Add Score:" + actuallyAddPoint + ", Now Score:" + score + ", Comment:\"" + comment + "\"");
+        SetMessage(comment);
     }
 
     public void AwardJackpot()
@@ -132,6 +140,7 @@ public class MainSystemScript : MonoBehaviour
     {
         life += addNum;
         Debug.Log("Add Life:" + addNum + ", Now Life:" + life + ", Comment:\"" + comment + "\"");
+        SetMessage(comment);
     }
 
     //クラッシュ処理
@@ -145,11 +154,11 @@ public class MainSystemScript : MonoBehaviour
             BallSpawn();
             if (replayableByTime)
             {
-                Debug.Log("Re-Deploy");
+                SetMessage("Re-Deploy");
             }
             else
             {
-                Debug.Log("Replay ball");
+                SetMessage("Replay ball");
                 replayable = false;
             }
         }
@@ -157,6 +166,7 @@ public class MainSystemScript : MonoBehaviour
         {
             //クラッシュ処理
             AddScore(10000, "Crash Bonus, Now play time:" + gameTimeNowPlay);
+            SetMessage("Crash");
             life -= 1;
             OnStandby();
             gameTimeNowPlay = 0f;
@@ -174,9 +184,8 @@ public class MainSystemScript : MonoBehaviour
     //ゲームオーバー処理
     private void GameOver()
     {
-        Debug.Log("GameOver!! Score:" + score);
-        Debug.Log("Play time: " + gameTimeWhole);
         audioSource.PlayOneShot(gameOverSound);
+        SetMessage("Game Over");
     }
 
 
@@ -195,6 +204,7 @@ public class MainSystemScript : MonoBehaviour
         bonusHold = false;
         jackpotScore = 0;
         bonusScore = 0;
+        SetMessage("Game Start");
 
         OnStandby();
     }

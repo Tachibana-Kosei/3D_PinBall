@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BanperScript : MonoBehaviour {
 	private float power = 1200f;
+	private AudioSource audioSource;
 
 	MainSystemScript system;   
 	// Start is called before the first frame update
 	void Start() {
 		system = GameObject.Find("MainSystem").GetComponent<MainSystemScript>();
-
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -27,6 +28,8 @@ public class BanperScript : MonoBehaviour {
 			// プレイヤーのリジッドボディに、現在の進行方向の逆向きに力を加える
 			ballRigid.AddForce((disBall.normalized-ballSpeed.normalized) * power);
 
+			//Sound
+			audioSource.Play();
 			//得点 addscore
 			system.AddScore(500);
 
