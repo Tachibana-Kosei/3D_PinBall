@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.UI;
 using static MainStaticScript;
 
 public class MainSystemScript : MonoBehaviour
 {
-    private const int maxLife = 3;
-    private int life = maxLife;
+    private const int MAXLife = 3;
+    private int life = MAXLife;
     private long score = 0;
     [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject ballPrefab;
@@ -49,10 +47,15 @@ public class MainSystemScript : MonoBehaviour
         Playing
     }
 
-    private void Start()
+    private void Awake()
     {
+        
         audioSource = GetComponent<AudioSource>();
         MainStaticScript.messageText = messageText;
+    }
+
+    private void Start()
+    {
         OnStandby();
         SetMessage("Game Start");
     }
@@ -192,7 +195,7 @@ public class MainSystemScript : MonoBehaviour
     private void GameReset()
     {
         Destroy(GameObject.FindWithTag("Ball"));
-        life = maxLife;
+        life = MAXLife;
         score = 0;
         gameTimeWhole = 0f;
         gameTimeNowPlay = 0f;

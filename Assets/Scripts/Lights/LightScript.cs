@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Lights
 {
@@ -11,9 +13,14 @@ namespace Lights
         private MeshRenderer thisMeshRenderer;
         private MainSystemScript mainSystemScript;
 
+        private void Awake()
+        {
+            
+            thisMeshRenderer = GetComponent<MeshRenderer>();
+        }
+
         private void Start()
         {
-            thisMeshRenderer = GetComponent<MeshRenderer>();
             mainSystemScript = GameObject.FindWithTag("MainSystem").GetComponent<MainSystemScript>();
             SetLight(isLight);
         }

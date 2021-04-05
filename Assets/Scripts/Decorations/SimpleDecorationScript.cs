@@ -16,9 +16,8 @@ public class SimpleDecorationScript : DecorationBasicScript
     private MeshRenderer meshRenderer;
     private bool nowIsBeforeLaunchMaterial = false;
 
-    protected override void Start()
+    private void Awake()
     {
-        base.Start();
         meshRenderer = GetComponent<MeshRenderer>();
         if (beforeLaunchMaterial == null) beforeLaunchMaterial = meshRenderer.material;
         if (afterLaunchMaterial == null) afterLaunchMaterial = meshRenderer.material;
@@ -34,6 +33,8 @@ public class SimpleDecorationScript : DecorationBasicScript
     {
         if (!nowIsBeforeLaunchMaterial)
         {
+            meshRenderer.material = beforeLaunchMaterial;
+            nowIsBeforeLaunchMaterial = true;
         }
     }
 
